@@ -1,0 +1,45 @@
+@import url('../css/normalize.css');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 100%;
+    max-width: 1400px;
+    display: block;
+    margin: auto;
+    height: 100%;
+    font-family: sans-serif;
+}
+.container {
+    width: 450px;
+    margin: 0 auto;
+}
+
+.table__container {
+    display:flex;
+    min-width: 100%;
+}
+
+.aside {
+    min-width: 200px;
+}
+
+.content {
+    min-width: fit-content;
+}
+
+.nav {
+    min-height: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 3px 8px;
+}

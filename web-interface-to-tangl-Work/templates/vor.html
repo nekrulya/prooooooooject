@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание ведомости объемов работ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.structure.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.theme.min.css') }}">
+</head>
+<body class="body">
+    <div id="preloader_malc" style="display:none;">
+
+        <div>
+    
+            Подождите, идет загрузка ...
+            Если вылезает сообщение "Страница не отвечает", нажмите кнопку продолжить
+    
+        </div>
+    
+    </div>
+    <header class="header">
+        <div class="header__left">
+            <p>Создание ведомости объемов работ<p>
+            <img src="{{ url_for('static', filename='img/view.png')}}" alt="view icon" class="view_icon">
+        </div>
+        <div class="menu">
+            <button id="logOut">Выход</button>
+        </div>
+        
+    </header>
+    <main class="main">
+        <div class="modal_form">
+            <div class="modal__form__left">
+                <form id="project_request">
+                    <img src="{{ url_for('static', filename='img/db.png') }}" alt="database" class="project__img">
+                    <select name="project" id="project">
+                        <option disabled selected>Выберите проект</option>
+                    </select>
+                </form>
+                <div class="model1_div">
+                    <ul id="model1">
+                        <!-- <li class="model1__group">
+                            <div class="model1__group__title">
+                                <img src="{{ url_for('static', filename='img/angle.png') }}" alt="open list" class="open_list">
+                                <img src="{{ url_for('static', filename='img/directory.png') }}" alt="directory" class="directory__img">
+                                <span>169-01</span>
+                            </div>
+                            <ul>
+                                <li class="model__group__item">
+                                    <img src="{{ url_for('static', filename='img/document.png') }}" alt="classficator__img" class="classficator__img">
+                                    <span>RVT 169_1.1_AP_r22_[wip]</span>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="modal__form__right">
+                <form id="tree_request">
+                    <img src="{{ url_for('static', filename='img/classficator.png') }}" alt="classficator__img" class="classficator__img">
+                    <select name="union_tree1" id="union_tree1">
+                        <option disabled selected>Выберите справочник</option>
+                    </select>
+                </form>
+                <div class="positions__title">
+                    Позиция
+                </div>
+                <ul id="positions">
+                    <!-- <li class="positions__group">
+                        <img src="{{ url_for('static', filename='img/angle.png') }}" alt="open list">
+                        <span class="positions__group__text">Внутрення отделка, проемы, кровля</span>
+                        <ul>
+                            <li class="positions__podgroup">
+                                <img src="{{ url_for('static', filename='img/angle.png') }}" alt="open list" class="open_list">
+                                <span class="positions__podgroup__text">Окна, витражи, двери балконные</span>
+                                <ul class="overflow_hidden">
+                                    <li class="positions__item">Окна</li>
+                                    <li class="positions__item">Двери балконные</li>
+                                    <li class="positions__item">Витражи из алюминиевых сплавов</li>
+                                </ul>
+                            </li>
+                            <li class="positions__podgroup">
+                                <img src="{{ url_for('static', filename='img/angle.png') }}" alt="open list">
+                                <span class="positions__podgroup__text">Двери</span>
+                                <ul>
+                                    <li class="positions__item">Двери балконные</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    
+        <!-- <div class="modal_form">
+            <form id="request" class="request">
+                <div class="request__left">
+                    <select name="project" id="project">
+                        <option disabled selected>Выберите проект</option>
+                    </select><br>
+                    <select name="model" id="model">
+                        <option disabled selected>Выберите модель</option>
+                    </select><br>
+                </div>
+                <div class="request__right">
+                    <select name="union_tree" id="union_tree">
+                        <option disabled selected>Выберите дерево</option>
+                    </select><br>
+                    <select name="vor_tree" id="vor_tree">
+                        <option disabled selected>Выберите ВОР</option>
+                    </select><br>
+                    <div id="properties">
+                        <select name="group_elements" id="group_elements" multiple>
+                            <option disabled selected>Выберите группу элементов</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div> -->
+        
+        <table id="prop_table">
+            <tr>
+                <th>
+                    <span class="prop_table_left_title">Свойства в модели</span>
+                    <br>
+                    <span class="hide_all">свернуть всё</span>
+                </th>
+                <th>
+                    <span class="prop_table_right_title">Свойства в таблице</span>
+                    <div class="table_buttons">
+                        <img src="{{ url_for('static', filename='img/group.png') }}" alt="group" id="add_prop_group">
+                        <img src="{{ url_for('static', filename='img/func.png') }}" alt="func" id="add_param_prop">
+                        <img src="{{ url_for('static', filename='img/saved.png') }}" alt="saved" id="add_templ_prop">    
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td><div id="propertie_list"></div></td>
+                <td colspan="3"><div id="propertie_to_table_list"></div></td>
+            </tr>
+        </table>
+        <div id="finally_table" class="finally_table">
+            
+    
+            
+        </div>
+    </main>
+    
+    
+
+
+
+    <div class="modal" id="modal_add_param_prop" style="display: none;">
+        <div class="frame add_param_prop_frame" id="add_param_prop_frame">
+            <div class="frame_content">
+                <div class="close_btn" id="close_modal_btn"><p>X</p></div>
+                <h2 style="text-align: center;" class="add_param_prop_frame__text">Добавление параметрического поля</h2>
+                <form id="add_param_prop_form">
+                    <input type="text" name="prop_name" id="prop_name" placeholder="Введите имя параметра" required>
+                    <div>
+                        <input type="text" name="expression" id="expression" placeholder="Введите формулу" required>
+                        <button id="search_prop">...</button>
+                    </div>
+                    <button type="submit" id="add_param_prop_btn">Добавить</button>
+                </form>
+            </div>
+            
+        </div>
+        <div class="frame" id="modal_search_prop" style="display:none;">
+            <div class="frame_content">
+                <div class="close_btn" id="close_search_modal_btn"><p>X</p></div>
+                <h2>Выберите свойство</h2>
+                <select name="field" id="field">
+                    <option disabled selected>Выберите поле</option>
+                </select>
+                <button id="modal_btn">Добавить</button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="modal" id="modal_add_template_prop" style="display: none;">
+        <div class="frame_content choose_template">
+            <div class="close_btn" id="close_modal_template_btn"><p>X</p></div>
+            <h2 class="choose_template__text">Выбор шаблонного свойства</h2>
+            <select name="template" id="template_slct" class="template_slct">
+                <option disabled selected>Выберите шаблон</option>
+            </select>
+            <button id="templ_btn" class="templ_btn">Добавить шаблон</button>
+        </div>
+    </div>
+    
+    
+    
+    
+    <script src="{{ url_for('static', filename='js/jquery-3.6.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.cookie.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/param.prop.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/create_table.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/templates_prop.js') }}"></script>
+    
+</body>
+</html>

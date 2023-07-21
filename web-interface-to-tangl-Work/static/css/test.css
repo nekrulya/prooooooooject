@@ -1,0 +1,17 @@
+#add_param_prop{
+    display: flex;
+    flex-direction: column;
+}
+
+#modal_search_prop{
+    border: 1px solid #000;
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    top: calc(50% - 100px);
+    left: calc(50% - 150px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
